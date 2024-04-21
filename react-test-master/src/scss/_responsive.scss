@@ -1,0 +1,79 @@
+
+@media screen and (max-width: 1200px) {
+  .nav-bar { 
+    background: transparent;
+    position: initial;
+    height: auto;
+    min-height: auto;
+
+     ul, nav {
+      display: none;
+     }
+
+     nav {
+      width: 40%;
+      top: 0;
+      left: 0;
+      background: #181818;
+      height: 100%;
+      margin: 0;
+      
+      z-index: 2;
+      position: fixed;
+
+      &.mobile-show {
+        display: block;
+      }
+
+      .nav-list {
+        margin-top: 5rem;
+        margin-left: 15px;
+      }
+
+      a {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+
+      a:after {
+        opacity: 1;
+        position: initial;
+        width: auto;
+        margin-left: 10PX;
+      }
+
+      a svg {
+        opacity: 1 !important;
+      }
+     }
+
+     .hamburger-icon,
+     .close-icon {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: block;
+     }
+
+     .logo {
+       display: none;
+  
+      img {
+        display: none;
+  
+        &.sub-logo {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .social-icons {
+    display: none;
+  }
+
+}

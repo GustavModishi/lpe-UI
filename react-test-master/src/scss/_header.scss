@@ -1,0 +1,49 @@
+@import 'colors';
+.header-top {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    background: $main-color;
+    height: 6rem;
+    bottom: 0.4rem;
+    z-index: 1;
+
+
+    .loc {
+        position: relative;
+        display: block;
+        color: $primary-color;
+        font-size: 2rem;
+        top: 2rem;
+        text-align: center;
+    }
+
+    .logo {
+        
+        position: relative;
+        top: 0;
+        right: -30rem;
+        z-index: 4;
+        width: 60px;
+    
+        img {
+          display: block;
+          margin: 8px auto;
+          width: 24px;
+          height: auto;
+          border: 1px;
+    
+          &.sub-logo {
+            width: 50px;
+          }
+        }
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .header-top {
+       display: none;
+    
+  }
+}

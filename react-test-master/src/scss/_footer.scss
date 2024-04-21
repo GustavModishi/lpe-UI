@@ -1,0 +1,74 @@
+@import 'colors';
+
+.footer-mob {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: $main-color;
+    height: 5%;
+
+    .social-icons {
+        position: relative;
+        
+        left: 1rem;
+        bottom: -12px;
+        margin-bottom: 5px;
+        padding-bottom: 0vh;
+
+        a {
+            padding: 0.4rem;
+
+            &:hover svg{
+                
+                  color: $primary-color;
+                
+              }
+        }
+        .anchor-icon {
+            font-size: 2rem;
+        }
+    }
+    .copyright {
+        position: fixed;
+        display: inline-grid;
+        font-size: 1rem;
+        right: 3rem;
+        bottom: 7px;
+        text-align: left;
+        
+        p {
+        .cr-icon {
+            padding-right: 3px;
+            margin-top: 6px;
+            position: relative;
+
+        
+        }
+      
+           margin-bottom: 0;
+           span {
+            margin-top: 6px;
+            padding-bottom: 4px;
+            font-size: 13px;
+
+           }
+        }
+        
+        
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .footer-mob {
+       display: none;
+    
+  }
+  .container.copyright {
+  
+    display: none;
+}
+}
+
+
+

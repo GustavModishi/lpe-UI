@@ -1,0 +1,185 @@
+@import 'config';
+@import 'colors';
+
+
+
+.projects {
+ 
+
+ 
+
+
+  &__items {
+    width: 950px;
+    margin: 2rem auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    grid-gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__item {
+    position: relative;
+    border-bottom: 5px solid $primary-color;
+   
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 1;
+    img {
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: $primary-color;
+      opacity: 0;
+      @include transition-ease;
+    }
+
+    &:hover {
+      &::after {
+        top: 0;
+        opacity: 0.9;
+      }
+      .projects__btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__btns {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    text-align: center;
+  }
+
+  &__btn {
+    opacity: 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: set-text-color($primary-color);
+    align-items: center;
+    text-align: center;
+    @include transition-ease;
+
+    &:hover {
+      color: set-text-color(set-text-color($primary-color));
+    }
+  }
+
+}
+
+
+
+@media screen and (max-width: 1200px) { 
+
+
+  .tags,
+  .project-page  h1:before,
+  .project-page h1:after {
+    display: none;
+  }
+  .project-page {
+    align-items: center;
+    h1 {
+      text-align: center;
+    
+   }
+   padding-bottom: 2vh;
+  }
+  .projects {
+    padding-bottom: 2rem;
+  
+  
+  
+    &__items {
+      width: 60vw;
+      margin: 2rem auto 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+    }
+  
+    &__item {
+      position: relative;
+      border-bottom: 5px solid $primary-color;
+      overflow: hidden;
+      cursor: pointer;
+  
+      img {
+        width: 100%;
+      }
+  
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $primary-color;
+        opacity: 0;
+        @include transition-ease;
+      }
+  
+      &:hover {
+        &::after {
+          top: 0;
+          opacity: 0.9;
+        }
+        .projects__btn {
+          opacity: 1;
+        }
+      }
+    }
+  
+    &__btns {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      text-align: center;
+    }
+  
+    &__btn {
+      opacity: 0;
+      color: set-text-color($primary-color);
+      @include transition-ease;
+  
+      &:hover {
+        color: set-text-color(set-text-color($primary-color));
+      }
+    }
+  
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    footer {
+      transform:
+        rotate(90deg)
+        translate(-3rem, -5rem);
+    }
+    
+  }
+  
+
+}

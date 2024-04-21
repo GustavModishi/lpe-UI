@@ -1,0 +1,31 @@
+@import 'colors';
+.inst {
+    color: #fff;
+
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        &:hover {
+            color: set-text-color(set-text-color($primary-color));
+          }
+        }
+}
+
+
+@media screen and (max-width: 1200px) { 
+
+  .tags,
+  .education-page  h1:before,
+  .education-page h1:after {
+    display: none;
+    
+  }
+
+  .education-page {
+    align-items: center;
+    h1 {
+      text-align: center;
+    
+   }
+}
+}
