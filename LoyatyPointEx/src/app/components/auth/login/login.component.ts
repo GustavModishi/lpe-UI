@@ -1,7 +1,9 @@
 import { Router } from '@angular/router';
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { LogIn } from 'src/app/models/User';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -9,33 +11,56 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email,   Validators.pattern(/^(.+)@(tut4life\.ac\.za|tut\.ac\.za)$/i)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  });
+email: string = '';
+ 
+password: string = '';
+UserData: LogIn = new LogIn();
+loginForm!: FormGroup;
+
   
-  constructor(private auth: AuthService) {}
+
+
+
+//this.router.navigateByUrl('dashboard');
+  constructor(private auth: AuthService, private formBuilder: FormBuilder, private router: Router) {}
+
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    });
     
     
   }
 
+ 
+  // this.UserData.UserName = this.username;
+  // this.UserData.Password = this.password;
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      this.auth.login(this.loginForm.value).subscribe(
-        (result) => {
-          console.log(result);
-          
-        },
-        (err: Error) => {
-          alert(err.message);
-        }
-      );
+    if (!this.loginForm.valid) {
+      return;
     }
+    this.UserData.UserName = this.email;
+    this.UserData.Password = this.password;
+   
+      this.auth.authenticateUsername(this.UserData.UserName, this.UserData.Password).subscribe(
+        (result) => {
+          // console.log(result);
+          console.log('Login successful');
+          this.router.navigateByUrl('user/purchase');
+
+        },
+        error => {
+         
+          console.error('Login failed:', error);
+        }
+      ); 
   }
+ 
 
   
 }

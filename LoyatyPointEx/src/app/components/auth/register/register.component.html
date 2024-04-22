@@ -24,8 +24,8 @@
       <i class="fa fa-times" aria-hidden="true"></i>
     <div class="form-box login">
         <h2>Registration</h2>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
-         
+        <form [formGroup]="registerForm"  novalidate>
+          <!-- (ngSubmit)="onSubmit() -->
           <div class="input-box">
             <input type="email" required  name="email">
             <label>TUT Email</label>
